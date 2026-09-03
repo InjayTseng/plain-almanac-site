@@ -5,19 +5,19 @@ const PRIVACY_URL = "https://injaytseng.github.io/plain-almanac-site/privacy.htm
 const BADGE_URL = "https://toolbox.marketingtools.apple.com/api/v2/badges/download-on-the-app-store/black/zh-tw";
 
 const COVERS = [
-  { src: "/images/01-cover-today.webp", title: "看得懂的農民曆", text: "「開市」旁邊寫著開店、上架、發布新產品。長輩看得懂，年輕人才會開。" },
-  { src: "/images/02-cover-find.webp", title: "沖到誰，就寫誰", text: "結婚登記、搬家、開店，往後 60、90 天適合的日子一次列出。記下家人生肖，沖到誰就寫誰。" },
-  { src: "/images/03-cover-widget.webp", title: "拿起手機就看到", text: "鎖定畫面與主畫面 Widget：農曆、值日、宜忌、沖到誰，不用開 App。" },
+  { src: "/images/raw-01-today.webp", title: "看得懂的農民曆", text: "「開市」旁邊寫著開店、上架、發布新產品。長輩看得懂，年輕人才會開。" },
+  { src: "/images/raw-04-find-lucky.webp", title: "沖到誰，就寫誰", text: "結婚登記、搬家、開店，往後 60、90 天適合的日子一次列出。記下家人生肖，沖到誰就寫誰。" },
+  { src: "/images/raw-06-widgets.webp", title: "拿起手機就看到", text: "鎖定畫面與主畫面 Widget：農曆、值日、宜忌、沖到誰，不用開 App。" },
 ];
 
 const FEATURES = [
-  { src: "/images/04-month.webp", title: "紅字假日，藍字吉日", text: "星期日與國定假日紅字，黃道吉日藍字，節氣與農曆寫在格子裡。" },
-  { src: "/images/05-terms.webp", title: "節氣時刻到分鐘", text: "今年 24 節氣的交節時刻用中央氣象署官方值。現在在哪個節氣、第幾天，一眼看到。" },
-  { src: "/images/06-find.webp", title: "先挑日子，再搬家", text: "選一件事，往後 30、60、90 天適合的日子一次列出。農曆七月的日子標出來，讓你自己決定。" },
-  { src: "/images/07-hours.webp", title: "今天哪個時段順", text: "十二時辰的吉與平，沖時標出來讓你避開。" },
-  { src: "/images/08-family.webp", title: "家人生肖，只在手機", text: "記下家裡的人，沖到誰寫名字。明天宜忌、節氣前一天的提醒都在本機排程。" },
-  { src: "/images/09-honesty.webp", title: "算了什麼，寫成一頁", text: "有算的每一層由引擎自己列出來，跟家裡那本通書對照時，知道差在哪。" },
-  { src: "/images/10-tomorrow.webp", title: "滑一下，看明天", text: "像撕日曆一樣左右滑，昨天、明天、下週都在手邊。" },
+  { src: "/images/raw-02-month.webp", title: "紅字假日，藍字吉日", text: "星期日與國定假日紅字，黃道吉日藍字，節氣與農曆寫在格子裡。" },
+  { src: "/images/raw-10-terms.webp", title: "節氣時刻到分鐘", text: "今年 24 節氣的交節時刻用中央氣象署官方值。現在在哪個節氣、第幾天，一眼看到。" },
+  { src: "/images/raw-03-find.webp", title: "先挑日子，再搬家", text: "選一件事，往後 30、60、90 天適合的日子一次列出。農曆七月的日子標出來，讓你自己決定。" },
+  { src: "/images/raw-05-hours.webp", title: "今天哪個時段順", text: "十二時辰的吉與平，沖時標出來讓你避開。" },
+  { src: "/images/raw-07-settings.webp", title: "家人生肖，只在手機", text: "記下家裡的人，沖到誰寫名字。明天宜忌、節氣前一天的提醒都在本機排程。" },
+  { src: "/images/raw-08-honesty.webp", title: "算了什麼，寫成一頁", text: "有算的每一層由引擎自己列出來，跟家裡那本通書對照時，知道差在哪。" },
+  { src: "/images/raw-12-tomorrow.webp", title: "滑一下，看明天", text: "像撕日曆一樣左右滑，昨天、明天、下週都在手邊。" },
 ];
 
 const PLAN_ROWS: { name: string; free: boolean; pro: boolean }[] = [
@@ -76,7 +76,7 @@ function Covers() {
         <div className="mt-10 grid gap-10 md:grid-cols-3 md:gap-8">
           {COVERS.map((c) => (
             <figure key={c.src} className="flex min-w-0 flex-col">
-              <div className="shot">
+              <div className="phone">
                 <Image src={c.src} alt={c.title} width={660} height={1434} sizes="(min-width: 768px) 30vw, 90vw" />
               </div>
               <figcaption className="mt-5">
@@ -100,7 +100,7 @@ function Features() {
         <ul className="scrollbar-hide -mx-6 mt-10 flex snap-x snap-mandatory gap-6 overflow-x-auto px-6 pb-4">
           {FEATURES.map((f) => (
             <li key={f.src} className="w-[240px] shrink-0 snap-start md:w-[260px]">
-              <div className="shot">
+              <div className="phone">
                 <Image src={f.src} alt={f.title} width={660} height={1434} sizes="260px" />
               </div>
               <h3 className="mt-4 text-xl font-bold">{f.title}</h3>

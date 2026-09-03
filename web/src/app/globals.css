@@ -72,3 +72,12 @@ h1, h2, h3, .serif { font-family: var(--font-serif); }
   border: 1px solid var(--color-rule);
 }
 .shot img { display: block; width: 100%; height: auto; }
+
+/* simple phone frame for raw simulator screenshots: ink border, big radius, captions do the talking */
+.phone {
+  border: 6px solid var(--color-ink);
+  border-radius: 40px;
+  overflow: hidden;
+  background: var(--color-ink);
+}
+.phone img { display: block; width: 100%; height: auto; border-radius: 34px; }
