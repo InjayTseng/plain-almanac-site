@@ -1,0 +1,74 @@
+@import "tailwindcss";
+
+@theme inline {
+  --color-paper: #FBFBF8;
+  --color-ink: #1C2033;
+  --color-dim: #7A7F92;
+  --color-rule: #E6E7EC;
+  --color-blue: #2440C9;
+  --color-blue-ink: #1A2F9C;
+  --color-blue-bg: #EEF1FC;
+  --color-red: #CD2E1E;
+  --color-red-ink: #A3231A;
+  --color-red-bg: #FBEFEC;
+  --font-serif: var(--font-noto-serif), "Songti TC", "Noto Serif TC", serif;
+  --font-sans: var(--font-noto-sans), "PingFang TC", "Noto Sans TC", sans-serif;
+}
+
+html {
+  background: var(--color-paper);
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { transition: none !important; animation: none !important; }
+}
+
+h1, h2, h3, .serif { font-family: var(--font-serif); }
+
+:focus-visible {
+  outline: 3px solid var(--color-blue);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+.scrollbar-hide { scrollbar-width: none; }
+.scrollbar-hide::-webkit-scrollbar { display: none; }
+
+/* the tear-off band: two punched holes, like the app icon */
+.band {
+  position: relative;
+  height: 56px;
+  background: var(--color-red);
+}
+.band::before, .band::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  width: 20px;
+  height: 20px;
+  margin-top: -10px;
+  border-radius: 50%;
+  background: var(--color-paper);
+}
+.band::before { left: 34%; }
+.band::after { left: 66%; }
+@media (min-width: 768px) {
+  .band { height: 72px; }
+  .band::before, .band::after { width: 26px; height: 26px; margin-top: -13px; }
+  .band::before { left: 38%; }
+  .band::after { left: 62%; }
+}
+
+/* iPhone frame around screenshots: the images already carry a device outline, so only a soft edge */
+.shot {
+  border-radius: 28px;
+  overflow: hidden;
+  background: var(--color-paper);
+  border: 1px solid var(--color-rule);
+}
+.shot img { display: block; width: 100%; height: auto; }
